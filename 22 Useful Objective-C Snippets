@@ -1,0 +1,72 @@
+STOP RESPONDING TO TOUCHES
+[[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+
+RESUME RESPONDING TO TOUCHES
+[[UIApplication sharedApplication] endIgnoringInteractionEvents];
+
+DISPLAY AN ALERT WINDOW
+UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"too many alerts" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+[alert show]
+
+DISPLAY THE NAME OF YOUR APPLICATION
+self.title = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+
+CHANGE THE STYLE OF A NAVIGATION BAR
+[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+
+GET THE CURRENT DATE AND TIME
+NSCalendar *gregorian = [NSCalendar currentCalendar];
+NSDateComponents *dateComponents = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:[NSDate date]];
+
+MAKE A VIBRATION
+AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+
+DISPLAY THE NUMBER OF LAUNCHES
+NSUserDefaults *countDefaults;
+int launchCount;
+
+countDefaults = [NSUserDefaults standardUserDefaults];
+launchCount = [countDefaults integerForKey:@"launchCount" ] + 1;
+[countDefaults setInteger:launchCount forKey:@"launchCount"];
+[countDefaults synchronize];
+
+
+NSLog(@"Launch number: %i", launchCount);
+
+Console Log of Launch Number
+Console Log of Launch Number
+CONFIGURING A UISCROLLVIEW
+[scrollView setScrollEnabled:YES];
+[scrollView setContentSize:CGSizeMake(320, 1400)];
+
+SET TITLE OF A VIEW IN A UIVIEWCONTROLLER
+viewController.title = @"Title Here...";
+
+
+SET THE FONT AND SIZE OF A UITEXTVIEW
+[thankYouTextView setFont:[UIFont fontWithName:@"Helvetica" size:16]];
+
+SET THE FONT SIZE OF A UILABEL
+[textView setFont:[UIFont fontWithName:@"Helvetica" size:16]];
+
+PRESENTING A UIVIEWCONTROLLER
+ViewController *viewController = [[ViewController alloc] init];
+viewController = @"Title Here...";
+[self.navigationController viewController animated:YES];
+
+HIDING THE BACK BUTTON IN A NAVIGATION CONTROLLER
+self.navigationItem.hidesBackButton = YES;
+
+SET BACKGROUND OF VIEW
+self.view.backgroundColor = [UIColor colorWithHue:1.0 saturation:0.0 brightness:0.6 alpha:1.0];
+
+GIVE APP ICON A BADGE NUMBER
+[UIApplication sharedApplication].applicationIconBadgeNumber = 10;
+
+ALIGN UILABEL TEXT
+titleLabel.textAlignment = UITextAlignmentCenter;
+
+SET BACKGROUND OF TAB BAR
+UIImage *tabBarBackground = [UIImage imageNamed:@"TabBarOverlay.png"];
+[rootController.tabBar setBackgroundImage:tabBarBackground];
+
